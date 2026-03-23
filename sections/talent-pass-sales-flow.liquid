@@ -1,0 +1,319 @@
+{{ 'talent-pass-sales-flow.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'talent-pass-sales-flow.js' | asset_url }}" defer></script>
+
+<section
+  class="tp-flow"
+  data-section-id="{{ section.id }}"
+  data-checkout-url="{{ section.settings.checkout_link }}"
+>
+  <div class="phone-wrap">
+    <div class="phone" id="phone">
+      <div class="nav">
+        <div class="nav-logo">Wiz<span>Kids</span> Carnival</div>
+        <div class="nav-cat" id="nav-cat">
+          <div>
+            <div class="nav-cat-label">Category</div>
+            <div class="nav-cat-pill" id="nav-cat-name">-</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sticky-result-bar" id="sticky-bar">
+        <div>
+          <div class="srb-label">Your child's category</div>
+          <div class="srb-name" id="srb-name">-</div>
+        </div>
+        <div class="srb-season">{{ section.settings.season_label }}</div>
+      </div>
+
+      <div id="quiz-section">
+        <div class="hero">
+          <div class="hero-eyebrow">{{ section.settings.hero_eyebrow }}</div>
+          <div class="hero-h">{{ section.settings.hero_title }}</div>
+          <div class="hero-sub">{{ section.settings.hero_subtitle }}</div>
+          <div class="hero-chips">
+            <span class="hchip hchip-ckc">CKC - Ages 6-15</span>
+            <span class="hchip hchip-lcl">LCL - Ages 3-5</span>
+          </div>
+        </div>
+        <div class="trust-bar">
+          <div class="ti"><div class="ti-num">282</div><div class="ti-lbl">★★★★★ reviews</div></div>
+          <div class="ti"><div class="ti-num">30K+</div><div class="ti-lbl">children</div></div>
+          <div class="ti"><div class="ti-num">500+</div><div class="ti-lbl">cities</div></div>
+        </div>
+        <div class="quiz-wrapper" id="quiz-wrapper"></div>
+      </div>
+
+      <div id="static-page">
+        <div class="result-hero" id="result-hero">
+          <div class="r-badge">Your child is a natural</div>
+          <div class="r-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="r-lbl">Your child is a natural</div>
+          <div class="r-name" id="r-name">-</div>
+          <div class="r-ip">{{ section.settings.season_label }} - Ages 6-15</div>
+          <div class="r-why" id="r-why"></div>
+        </div>
+
+        <div class="story-shell" id="story_a">
+          <div class="story-prog" id="story_a-prog"></div>
+          <div class="story-tap-l" onclick="storyNav('story_a',-1)"></div>
+          <div class="story-tap-r" onclick="storyNav('story_a',1)"></div>
+          <div class="story-track" id="story_a-track">
+            <div class="story-slide"><div class="sc1">
+              <div class="sc1-orb">🏆</div>
+              <div class="sc-eyebrow">What parents say</div>
+              <div class="sc1-quote" id="story_a-q">"Viraj has won 6 medals across Build It and Dance. They're on the shelf in his room. He shows every guest who comes home."</div>
+              <div class="sc1-stars">★★★★★</div>
+              <div class="sc1-attr" id="story_a-attr">Viraj's parent - Mumbai - Age 12</div>
+            </div></div>
+
+            <div class="story-slide"><div class="sc2">
+              <div class="sc-eyebrow">What they receive - every submission</div>
+              <div class="sc2-headline">A real judge writes<br>a personalised report</div>
+              <div class="sc2-card">
+                <div class="sc2-hdr">
+                  <div class="sc2-hdr-name">Aarav Sharma</div>
+                  <div class="sc2-hdr-sub" id="story_a-fcat">Color Wizards - Apr 2026</div>
+                </div>
+                <div class="sc2-scores">
+                  <div><div class="sc2-score-lbl">Imagination</div><div class="sc2-score-stars">★★★★★</div></div>
+                  <div><div class="sc2-score-lbl">Technique</div><div class="sc2-score-stars">★★★★☆</div></div>
+                  <div><div class="sc2-score-lbl">Presentation</div><div class="sc2-score-stars">★★★★★</div></div>
+                </div>
+                <div class="sc2-body">
+                  <div class="sc2-cl">Judge's comment</div>
+                  <div class="sc2-comment">"The colour layering here is remarkably intentional for this age. The background texture shows real artistic instinct - encourage mixed media next."</div>
+                </div>
+              </div>
+              <div class="sc2-cap">Every child. Every submission. Written for their entry - not a template.</div>
+            </div></div>
+
+            <div class="story-slide"><div class="sc3">
+              <div class="sc-eyebrow" style="align-self:flex-start;margin-bottom:10px;">Physical certificate - delivered home</div>
+              <div class="sc3-cert">
+                <div class="sc3-banner"><div class="sc3-ribbon">Certificate of Excellence</div></div>
+                <div class="sc3-body">
+                  <div class="sc3-awarded">This certificate is awarded to</div>
+                  <div class="sc3-name">Aarav Sharma</div>
+                  <div class="sc3-detail" id="story_a-cdet">For outstanding participation in<br><strong>Color Wizards</strong> - {{ section.settings.season_label }}<br>April 2026</div>
+                  <div class="sc3-divider"></div>
+                  <div class="sc3-sig">WizKids Carnival</div>
+                  <div class="sc3-role">National Director, {{ section.settings.season_label }}</div>
+                </div>
+              </div>
+              <div class="sc3-cap">Printed and posted to your home. Guaranteed on every submission.</div>
+            </div></div>
+
+            <div class="story-slide"><div class="sc4">
+              <div class="sc-eyebrow">30,000 children across India</div>
+              <div class="sc4-title">A national stage.<br>From your living room.</div>
+              <div class="sc4-sub">Every city. Every talent. One championship.</div>
+              <div class="sc4-grid">
+                <div class="sc4-cell">🎨<div class="sc4-cell-lbl">Arts</div></div>
+                <div class="sc4-cell">🎤<div class="sc4-cell-lbl">Oratory</div></div>
+                <div class="sc4-cell">💃<div class="sc4-cell-lbl">Dance</div></div>
+                <div class="sc4-cell">🎵<div class="sc4-cell-lbl">Singing</div></div>
+                <div class="sc4-cell">🔧<div class="sc4-cell-lbl">STEM</div></div>
+                <div class="sc4-cell">✍️<div class="sc4-cell-lbl">Writing</div></div>
+              </div>
+              <div class="sc4-stats">
+                <div class="sc4-stat"><div class="sc4-num">30K+</div><div class="sc4-lbl">children competed</div></div>
+                <div class="sc4-stat"><div class="sc4-num">500+</div><div class="sc4-lbl">cities</div></div>
+                <div class="sc4-stat"><div class="sc4-num">S5</div><div class="sc4-lbl">Season 5 live now</div></div>
+              </div>
+            </div></div>
+
+            <div class="story-slide"><div class="sc5">
+              <div class="sc-eyebrow">Real medals - delivered home</div>
+              <div class="sc5-title">Something they<br>can hold.</div>
+              <div class="sc5-sub">Participation medal after 3 submissions. Competition medals if they win.</div>
+              <div class="sc5-shelf">
+                <div class="sc5-medal sc5-purple"><div class="sc5-rib"></div><div class="sc5-cir">P</div></div>
+                <div class="sc5-medal sc5-bronze"><div class="sc5-rib"></div><div class="sc5-cir">3</div></div>
+                <div class="sc5-medal sc5-silver"><div class="sc5-rib"></div><div class="sc5-cir">2</div></div>
+                <div class="sc5-medal sc5-gold"><div class="sc5-rib"></div><div class="sc5-cir">1</div></div>
+                <div class="sc5-medal sc5-gold"><div class="sc5-rib"></div><div class="sc5-cir">🏆</div></div>
+              </div>
+              <div class="sc5-quote">"Viraj has won 6 medals. They're on the shelf in his room. He shows every guest who comes home."</div>
+              <div class="sc5-attr">- Viraj's parent - Mumbai - Age 12</div>
+            </div></div>
+
+            <div class="story-slide"><div class="sc6">
+              <div class="sc6-icon">🎧</div>
+              <div class="sc6-badge"><div class="sc6-badge-dot"></div><div class="sc6-badge-text">Live support - 6 days a week</div></div>
+              <div class="sc6-title">Your own CS manager.<br>Right till submission.</div>
+              <div class="sc6-sub">No other competition platform does this. Someone who knows your child's category, their submission, their deadline - and is there when you need them.</div>
+              <div class="sc6-pills">
+                <div class="sc6-pill">WhatsApp support</div>
+                <div class="sc6-pill">6 days a week</div>
+                <div class="sc6-pill">Till submission day</div>
+              </div>
+              <div class="sc6-quote">"I messaged at 9pm the night before the deadline. Got a reply in 4 minutes. My son's entry was submitted perfectly."</div>
+              <div class="sc6-attr">- Sunita Kapoor - Pune - Color Wizards</div>
+            </div></div>
+
+            <div class="story-slide"><div class="sc7">
+              <div class="sc7-star">⭐</div>
+              <div class="sc7-title">Everything your child<br>deserves. From {{ section.settings.starting_price }}/month.</div>
+              <div class="sc7-sub">Join 30,000 children competing on India's only national talent championship from home.</div>
+              <div class="sc7-benefits">
+                <div class="sc7-benefit"><div class="sc7-benefit-dot" style="background:#059669"></div><div class="sc7-benefit-text">Expert feedback report - every submission</div></div>
+                <div class="sc7-benefit"><div class="sc7-benefit-dot" style="background:#059669"></div><div class="sc7-benefit-text">Physical certificate delivered home</div></div>
+                <div class="sc7-benefit"><div class="sc7-benefit-dot" style="background:#F5A623"></div><div class="sc7-benefit-text">Medals if they win - national leaderboard</div></div>
+                <div class="sc7-benefit"><div class="sc7-benefit-dot" style="background:#10B981"></div><div class="sc7-benefit-text">Your own CS manager - 6 days a week</div></div>
+              </div>
+              <button class="sc7-btn" onclick="window.TalentPassFlow && window.TalentPassFlow.enrolNow()">Enrol now</button>
+              <div class="sc7-guar">30-day satisfaction guarantee - no questions asked</div>
+            </div></div>
+          </div>
+          <div class="story-dotnav">
+            <div class="sdn-dots" id="story_a-dots"></div>
+            <div class="sdn-hint" id="story_a-hint">tap to advance</div>
+          </div>
+          <div class="story-fixed-strip">
+            <div class="sfs-left">
+              <div class="sfs-label">Start from</div>
+              <div class="sfs-price">{{ section.settings.plan_price }} <span style="font-size:10px;color:rgba(255,255,255,0.4);font-family:var(--font-body)">+ GST</span></div>
+              <div class="sfs-mo">{{ section.settings.starting_price }}/month</div>
+            </div>
+            <button class="sfs-btn" onclick="window.TalentPassFlow && window.TalentPassFlow.enrolNow()">Enrol now</button>
+          </div>
+        </div>
+
+        <div class="ckc-context">
+          <div class="ckc-context-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+          </div>
+          <div class="ckc-context-text"><strong>CKC is India's only national championship where children compete from home.</strong> Now in Season 5. Judges are practising experts - not teachers, not academics. Every child receives a personalised written assessment, regardless of rank.</div>
+        </div>
+
+        <div class="scroll-cue" onclick="document.getElementById('theme-section').scrollIntoView({behavior:'smooth'})">
+          <span class="scroll-cue-text">See what's in store for your child</span>
+          <svg class="scroll-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B2D8E" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+
+        <div class="scroll-body">
+          <div class="section" id="theme-section">
+            <div class="sec-eyebrow">This month</div>
+            <div class="sec-title" id="sec-theme-title">April theme</div>
+            <div class="theme-card">
+              <div class="theme-eyebrow">April 2026</div>
+              <div class="theme-name" id="theme-name">-</div>
+              <div class="theme-date">Submissions open now - Closes Apr 28</div>
+            </div>
+            <div class="coming-grid">
+              <div class="coming-card"><div class="cc-month">May 2026</div><div class="cc-theme" id="theme-next1">-</div></div>
+              <div class="coming-card"><div class="cc-month">June 2026</div><div class="cc-theme" id="theme-next2">-</div></div>
+            </div>
+          </div>
+
+          <div class="section" id="feats-section">
+            <div class="sec-eyebrow">What you selected</div>
+            <div class="sec-title">How it maps</div>
+            <div class="feat-rows" id="feat-rows-display"></div>
+          </div>
+
+          <div class="section">
+            <div class="sec-eyebrow">What parents say</div>
+            <div class="sec-title" id="review-sec-title">From a WKC parent</div>
+            <div class="review-card">
+              <div class="rev-stars">★★★★★</div>
+              <div class="rev-text" id="review-text">-</div>
+              <div class="rev-author" id="review-author">-</div>
+            </div>
+          </div>
+
+          <div class="section" id="plans-section">
+            <div class="sec-eyebrow">Choose your plan</div>
+            <div class="sec-title">CKC Talent Pass - <span id="plan-cat-name">-</span></div>
+            <div class="plan-toggle">
+              <button class="ptab active" onclick="setPlan('q',this)">Quarterly</button>
+              <button class="ptab" onclick="setPlan('sa',this)">6 months</button>
+              <button class="ptab" onclick="setPlan('an',this)">Annual</button>
+            </div>
+            <div id="plan-card-container"></div>
+            <div class="guar-box">
+              <div class="g-title">30-day satisfaction guarantee</div>
+              <div class="g-text">If your child doesn't receive their feedback report and love it - full refund. No questions asked.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="enrol-section">
+          <button class="btn-gold" id="enrol-btn" onclick="window.TalentPassFlow && window.TalentPassFlow.enrolNow()">
+            {{ section.settings.cta_label }} - <span id="enrol-price">{{ section.settings.plan_price }}</span>
+          </button>
+          <div class="hint">Secure checkout via Razorpay - Takes 2 minutes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Talent Pass Sales Flow",
+  "settings": [
+    {
+      "type": "text",
+      "id": "flow_label",
+      "label": "Flow label",
+      "default": "Variant A - Story after result card"
+    },
+    {
+      "type": "text",
+      "id": "hero_eyebrow",
+      "label": "Hero eyebrow",
+      "default": "CKC Season 5 - Now Open"
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero title",
+      "default": "India's national championship for your child's hidden talent"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_subtitle",
+      "label": "Hero subtitle",
+      "default": "Real judges. Real feedback. A national stage - from home."
+    },
+    {
+      "type": "text",
+      "id": "season_label",
+      "label": "Season label",
+      "default": "CKC Season 5"
+    },
+    {
+      "type": "text",
+      "id": "plan_price",
+      "label": "Plan price label",
+      "default": "₹1,399"
+    },
+    {
+      "type": "text",
+      "id": "starting_price",
+      "label": "Starting monthly label",
+      "default": "₹467"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA button label",
+      "default": "Enrol now"
+    },
+    {
+      "type": "url",
+      "id": "checkout_link",
+      "label": "Checkout or payment link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Talent Pass Sales Flow"
+    }
+  ]
+}
+{% endschema %}
